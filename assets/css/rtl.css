@@ -1,0 +1,164 @@
+/* نظام إدارة الموارد البشرية - أنماط RTL */
+
+/* الاتجاه الأساسي */
+body {
+    direction: rtl;
+    text-align: right;
+}
+
+/* التنقل */
+.navbar-nav {
+    padding-right: 0;
+}
+
+.navbar .dropdown-menu {
+    right: 0;
+    left: auto;
+    text-align: right;
+}
+
+.dropdown-item {
+    text-align: right;
+}
+
+/* الشريط الجانبي */
+.sidebar {
+    right: 0;
+}
+
+.sidebar .nav-link i {
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+/* الجداول */
+.table th,
+.table td {
+    text-align: right;
+}
+
+/* النماذج */
+.form-check {
+    padding-right: 1.25rem;
+    padding-left: 0;
+}
+
+.form-check-input {
+    margin-right: -1.25rem;
+    margin-left: 0;
+}
+
+.input-group > .input-group-prepend > .btn,
+.input-group > .input-group-prepend > .input-group-text,
+.input-group > .input-group-append:not(:last-child) > .btn,
+.input-group > .input-group-append:not(:last-child) > .input-group-text,
+.input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle),
+.input-group > .input-group-append:last-child > .input-group-text:not(:last-child) {
+    border-radius: 0 0.25rem 0.25rem 0;
+}
+
+.input-group > .form-control:not(:first-child),
+.input-group > .custom-select:not(:first-child) {
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+/* التنبيهات */
+.alert-dismissible {
+    padding-right: 1.25rem;
+    padding-left: 4rem;
+}
+
+.alert-dismissible .close {
+    right: auto;
+    left: 0;
+}
+
+/* البطاقات */
+.card-header .actions {
+    float: left;
+}
+
+/* القوائم */
+.list-unstyled {
+    padding-right: 0;
+}
+
+/* الأزرار مع الأيقونات */
+.btn i {
+    margin-left: 5px;
+    margin-right: 0;
+}
+
+/* التذييل */
+.footer {
+    text-align: right;
+}
+
+/* الشرائح */
+.carousel-control-prev {
+    right: 0;
+    left: auto;
+}
+
+.carousel-control-next {
+    left: 0;
+    right: auto;
+}
+
+/* المودال */
+.modal-header .close {
+    margin: -1rem auto -1rem -1rem;
+}
+
+.modal-footer {
+    justify-content: flex-start;
+}
+
+/* التنسيق */
+.mr-auto {
+    margin-right: 0 !important;
+    margin-left: auto !important;
+}
+
+.ml-auto {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+}
+
+.text-left {
+    text-align: right !important;
+}
+
+.text-right {
+    text-align: left !important;
+}
+
+/* الشبكة */
+.offset-1 {
+    margin-right: 8.333333%;
+    margin-left: 0;
+}
+
+.offset-2 {
+    margin-right: 16.666667%;
+    margin-left: 0;
+}
+
+.offset-3 {
+    margin-right: 25%;
+    margin-left: 0;
+}
+
+/* الأيقونات */
+.fa-chevron-right:before {
+    content: "\f053";
+}
+
+.fa-chevron-left:before {
+    content: "\f054";
+}
+
+/* التحميل */
+.loading {
+    direction: ltr;
+}
