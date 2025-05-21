@@ -64,6 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             // تسجيل الدخول ناجح
                             $_SESSION['user_id'] = $user['id'];
                             $_SESSION['username'] = $user['username'];
+                            $_SESSION['role'] = $user['role']; // Store the user's role
                             $_SESSION['last_activity'] = time();
 
                             // تحديث معلومات تسجيل الدخول
@@ -149,6 +150,7 @@ $csrf_token = generateCSRFToken();
             <?php endif; ?>
 
             <form method="post" action="">
+                <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
                 <div class="mb-3">
                     <label for="username" class="form-label">اسم المستخدم</label>
                     <input type="text" class="form-control" id="username" name="username" required>
