@@ -1,9 +1,4 @@
 <?php
-// منع الوصول المباشر للملف
-if (!defined('BASEPATH')) {
-    define('BASEPATH', true);
-}
-
 // تعطيل عرض الأخطاء في بيئة الإنتاج
 if (!isset($_ENV['APP_ENV']) || $_ENV['APP_ENV'] !== 'development') {
     ini_set('display_errors', 0);

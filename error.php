@@ -1,11 +1,7 @@
 <?php
-// منع الوصول المباشر للملف
-if (!defined('BASEPATH')) {
-    define('BASEPATH', true);
-}
-
 // تضمين ملف الإعدادات
 require_once 'includes/config.php';
+require_once 'includes/app_config.php';
 
 // تحديد نوع الخطأ
 $errorCode = isset($_GET['code']) ? (int)$_GET['code'] : 500;

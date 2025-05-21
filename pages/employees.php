@@ -1,9 +1,4 @@
 <?php
-// منع الوصول المباشر للملف
-if (!defined('BASEPATH')) {
-    define('BASEPATH', true);
-}
-
 // تضمين الملفات المطلوبة
 require_once '../includes/config.php';
 require_once '../includes/functions.php';

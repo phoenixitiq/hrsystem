@@ -1,8 +1,4 @@
 <?php
-if (!defined('BASEPATH')) {
-    define('BASEPATH', true);
-}
-
 class Database {
     private static $instance = null;
     private $connection;

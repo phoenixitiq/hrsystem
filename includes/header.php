@@ -1,11 +1,7 @@
 <?php
-// منع الوصول المباشر للملف
-if (!defined('BASEPATH')) {
-    define('BASEPATH', true);
-}
-
 // تضمين ملف الإعدادات
 require_once 'config.php';
+require_once 'app_config.php'; // Make sure APP_NAME and other app-specific constants are available
 
 // التحقق من تسجيل الدخول
 if (!isset($_SESSION['user_id'])) {

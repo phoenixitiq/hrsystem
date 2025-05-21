@@ -15,6 +15,8 @@ CREATE TABLE users (
     status ENUM('active', 'inactive', 'suspended') NOT NULL DEFAULT 'active',
     login_attempts INT NOT NULL DEFAULT 0,
     last_login DATETIME,
+    last_login_attempt DATETIME DEFAULT NULL,
+    last_login_ip VARCHAR(45) DEFAULT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -238,8 +240,21 @@ INSERT INTO positions (name, description, department_id) VALUES
 ('مندوب مبيعات', 'مندوب مبيعات', 5);
 
 -- إدخال المستخدم الافتراضي
-INSERT INTO users (username, password, email, full_name, role) VALUES
-('admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin@example.com', 'مدير النظام', 'admin');
+INSERT INTO users (id, username, password, email, full_name, role, status, created_at, updated_at, last_login, last_login_ip, login_attempts) VALUES
+(1, 'admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin@example.com', 'مدير النظام', 'admin', 'active', '2024-07-20 08:00:00', '2024-07-20 08:00:00', NULL, NULL, 0);
+
+-- Assign all permissions to admin user (user_id = 1)
+INSERT INTO user_permissions (user_id, permission_id) VALUES (1, 1); -- manage_users
+INSERT INTO user_permissions (user_id, permission_id) VALUES (1, 2); -- manage_employees
+INSERT INTO user_permissions (user_id, permission_id) VALUES (1, 3); -- manage_departments
+INSERT INTO user_permissions (user_id, permission_id) VALUES (1, 4); -- manage_positions
+INSERT INTO user_permissions (user_id, permission_id) VALUES (1, 5); -- manage_leaves
+INSERT INTO user_permissions (user_id, permission_id) VALUES (1, 6); -- manage_attendance
+INSERT INTO user_permissions (user_id, permission_id) VALUES (1, 7); -- manage_loans
+INSERT INTO user_permissions (user_id, permission_id) VALUES (1, 8); -- manage_debts
+INSERT INTO user_permissions (user_id, permission_id) VALUES (1, 9); -- manage_salaries
+INSERT INTO user_permissions (user_id, permission_id) VALUES (1, 10); -- view_reports
+INSERT INTO user_permissions (user_id, permission_id) VALUES (1, 11); -- manage_settings
 
 -- إدخال بيانات تجريبية للموظفين
 INSERT INTO employees (name, national_id, birth_date, gender, marital_status, email, phone, address, emergency_contact, emergency_phone, department_id, position_id, hire_date, salary, bank_name, bank_account) VALUES

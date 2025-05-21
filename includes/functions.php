@@ -118,6 +118,10 @@ function isLoggedIn() {
  * دالة التحقق من الصلاحيات
  */
 function hasPermission($permission) {
+    // If user has 'admin' role, grant all permissions
+    if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
+        return true;
+    }
     if (!isset($_SESSION['user_permissions'])) {
         return false;
     }
