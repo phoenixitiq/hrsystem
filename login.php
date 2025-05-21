@@ -1,12 +1,9 @@
 <?php
-// منع الوصول المباشر للملف
-if (!defined('BASEPATH')) {
-    define('BASEPATH', true);
-}
-
 // تضمين ملف الإعدادات
 require_once 'includes/config.php';
+require_once 'includes/app_config.php';
 require_once 'includes/Database.php';
+require_once 'includes/functions.php';
 
 session_start();
 

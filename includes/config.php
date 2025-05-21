@@ -20,7 +20,9 @@ ini_set('session.use_only_cookies', 1);
 ini_set('session.name', 'HRSESSID');
 
 // تعريف المسارات الأساسية
-define('BASEPATH', dirname(__DIR__));
+if (!defined('BASEPATH')) {
+    define('BASEPATH', dirname(__DIR__));
+}
 define('INCLUDES_PATH', BASEPATH . '/includes');
 define('EXPORT_PATH', BASEPATH . '/exports');
 define('APP_PATH', BASEPATH . '/app');
@@ -89,6 +91,15 @@ try {
         throw new Exception('ملف autoload.php غير موجود. يرجى تشغيل: composer install');
     }
     require_once $autoloadFile;
+
+    // Load the Database class file
+    require_once __DIR__ . '/Database.php';
+
+    // Load the Cache class file
+    require_once __DIR__ . '/cache.php';
+
+    // Load the Notification class file
+    require_once __DIR__ . '/notifications.php';
 
     // تحميل وتهيئة Dotenv
     $envFile = BASEPATH . '/.env';
@@ -259,7 +270,7 @@ try {
 
     // تهيئة نظام الإشعارات
     try {
-        $notifications = new Notification();
+        $notifications = Notification::getInstance();
     } catch (Exception $e) {
         logError("خطأ في تهيئة نظام الإشعارات: " . $e->getMessage());
         $notifications = null;
